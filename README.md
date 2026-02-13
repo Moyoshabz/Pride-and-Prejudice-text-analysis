@@ -16,7 +16,7 @@ This project demonstrates a hands-on **big-data workflow** using Hadoop MapReduc
 - Uploaded to HDFS:
 ```bash
 hdfs dfs -mkdir -p /text_analysis_input
-hdfs dfs -put 1342-0.txt /text_analysis_input
+hdfs dfs -put 1342-0.txt /text_analysis_input ```
 
 
  2. Data Cleaning 
