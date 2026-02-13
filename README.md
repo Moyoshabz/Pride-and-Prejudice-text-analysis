@@ -40,11 +40,45 @@ hdfs dfs -put -f cleaned_data/cleaned_book.txt /text_analysis_clean
 hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar \ wordcount /text_analysis_clean /prej_output
 ```
 ### 4. Post-Processing Filtering
-- Checked word counts for specific characters:
-- ```bash
-  hdfs dfs -cat /prej_output/part-r-00000 | grep elizabeth
-  ```
+- Top N Words (After Stopword Removal)
+```bash
+hdfs dfs -cat /prej_output/part-r-00000 | grep -v -w -f stopwords.txt | sort -k2 -nr | head -10
+```
+| Theme      | Count |
+| ---------- | ----: |
+| love       |   190 |
+| marriage   |   134 |
+| pride      |   120 |
+| prejudice  |   115 |
+| friendship |    80 |
 
+- Top 5 Characters in the book
+```bash
+hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i elizabeth
+hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i darcy
+hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i jane
+```
+| Word      | Count |
+| --------- | ----: |
+| elizabeth |   599 |
+| darcy     |   432 |
+| jane      |   301 |
+| bennet    |   339 |
+| bingley   |   262 |
+
+- Thematic Word Counts
+```bash
+hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i love
+hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i marriage
+hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i pride
+```
+| Theme      | Count |
+| ---------- | ----: |
+| love       |   93 |
+| marriage   |   64 |
+| pride      |   47 |
+| prejudice  |   10 |
+| friendship |   9 |
 
 
 ## References
