@@ -18,6 +18,8 @@ This project demonstrates a hands-on **big-data workflow** using Hadoop MapReduc
 hdfs dfs -mkdir -p /text_analysis_input
 hdfs dfs -put 1342-0.txt /text_analysis_input
 ```
+---
+
 ### 2. Data Cleaning
 - Converted all text to lowercase and removed punctuation:
   ```bash
@@ -29,6 +31,8 @@ hdfs dfs -cat /text_analysis_input/1342-0.txt | tr '[:upper:]' '[:lower:]' | tr 
 grep elizabeth cleaned_data/cleaned_book.txt | head
 grep love cleaned_data/cleaned_book.txt | head
 ```
+---
+
 ### 3. Distributed Processing (MapReduce)
 - Created a clean input directory in HDFS:
 - ```bash
@@ -39,6 +43,8 @@ hdfs dfs -put -f cleaned_data/cleaned_book.txt /text_analysis_clean
 ```bash
 hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar \ wordcount /text_analysis_clean /prej_output
 ```
+---
+
 ### 4. Post-Processing Filtering
 - Top N Words (After Stopword Removal)
 ```bash
@@ -85,7 +91,27 @@ hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i pride
 | prejudice  |   10 |
 | friendship |   9 |
 
+---
+
+### Screenshot
+
+## Lessons Learned
+- Tokenization – Raw WordCount counts punctuation as part of words (e.g., elizabeth vs elizabeth's).
+- Normalization – Converting all text to lowercase merges duplicates and ensures consistent counts.
+- Text Preprocessing – Cleaning punctuation and extra symbols is essential for accurate frequency analysis.
+- Why raw WordCount can be misleading – Common words like “the” dominate results without proper preprocessing.
+- Big Data Workflow Practice – End-to-end workflow includes: Ingestion → Cleaning → Normalization → Distributed Processing → Post-Processing.
+
+---
+
+## Future Improvements
+- Replace punctuation with whitespace instead of deletion to prevent glued words (e.g., elizabethand).
+- Proper tokenization to handle contractions, possessives, and special characters.
+- Adopt lexicons or more efficient stopword lists for faster, scalable filtering of common/noise words.
+- Sentiment analysis for thematic words like love and marriage to gain richer insights.
+
+---
 
 ## References
-
-Project Gutenberg – Pride and Prejudice : https://www.gutenberg.org/files/1342/1342-0.txt 
+Project Gutenberg – Pride and Prejudice : 
+https://www.gutenberg.org/files/1342/1342-0.txt 
