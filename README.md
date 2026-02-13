@@ -44,4 +44,9 @@ hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar \
 - ```bash
   hdfs dfs -cat /prej_output/part-r-00000 | grep elizabeth
   ```
-  
+
+
+
+## References
+
+Project Gutenberg – Pride and Prejudice : https://www.gutenberg.org/files/1342/1342-0.txt 
