@@ -10,9 +10,9 @@ This project demonstrates a hands-on **big-data workflow** using Hadoop MapReduc
 
 ### 1. Raw Ingestion
 - Downloaded the text from Project Gutenberg:
-  ```bash
+```bash
   wget https://www.gutenberg.org/files/1342/1342-0.txt
-  ```
+```
 - Uploaded to HDFS:
 ```bash
 hdfs dfs -mkdir -p /text_analysis_input
@@ -22,7 +22,7 @@ hdfs dfs -put 1342-0.txt /text_analysis_input
 
 ### 2. Data Cleaning
 - Converted all text to lowercase and removed punctuation:
-  ```bash
+```bash
 mkdir -p cleaned_data
 hdfs dfs -cat /text_analysis_input/1342-0.txt | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' > cleaned_data/cleaned_book.txt
 ```
@@ -35,7 +35,7 @@ grep love cleaned_data/cleaned_book.txt | head
 
 ### 3. Distributed Processing (MapReduce)
 - Created a clean input directory in HDFS:
-- ```bash
+```bash
 hdfs dfs -mkdir -p /text_analysis_clean
 hdfs dfs -put -f cleaned_data/cleaned_book.txt /text_analysis_clean
 ```
