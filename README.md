@@ -46,11 +46,16 @@ hdfs dfs -cat /prej_output/part-r-00000 | grep -v -w -f stopwords.txt | sort -k2
 ```
 | Theme      | Count |
 | ---------- | ----: |
-| love       |   190 |
-| marriage   |   134 |
-| pride      |   120 |
-| prejudice  |   115 |
-| friendship |    80 |
+| elizabeth  |   599 |
+| darcy      |   358 |
+| bennet      |   290 |
+| jane  |   261 |
+| bingley |    246 |
+| little |    189 |
+| nothing |    182 |
+| lady |    179 |
+| sister |    172 |
+| illustration |    163 |
 
 - Top 5 Characters in the book
 ```bash
@@ -60,11 +65,11 @@ hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i jane
 ```
 | Word      | Count |
 | --------- | ----: |
-| elizabeth |   599 |
-| darcy     |   432 |
-| jane      |   301 |
-| bennet    |   339 |
-| bingley   |   262 |
+| elizabeth | 599 |
+| darcy     | 358 |
+| bennet    | 290 |
+| jane      | 261 |
+| bingley   | 246 |
 
 - Thematic Word Counts
 ```bash
