@@ -16,13 +16,5 @@ This project demonstrates a hands-on **big-data workflow** using Hadoop MapReduc
 - Uploaded to HDFS:
 ```bash
 hdfs dfs -mkdir -p /text_analysis_input
-hdfs dfs -put 1342-0.txt /text_analysis_input ```
+hdfs dfs -put 1342-0.txt /text_analysis_input
 
-
- 2. Data Cleaning 
-Converted all text to lowercase and removed punctuation:
-```bash
-mkdir -p cleaned_data
-hdfs dfs -cat /text_analysis_input/1342-0.txt \
-    | tr '[:upper:]' '[:lower:]' \
-    | tr -d '[:punct:]' > cleaned_data/cleaned_book.txt
