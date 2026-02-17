@@ -43,8 +43,8 @@ hdfs dfs -put -f cleaned_data/cleaned_book.txt /text_analysis_clean
 ```bash
 hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar \ wordcount /text_analysis_clean /prej_output
 ```
-![iamge_1](./Screenshoots/prej2.png)
 ---
+![iamge_1](./Screenshoots/prej2.png)
 
 ### 4. Post-Processing Filtering
 - Top N Words (After Stopword Removal)
@@ -63,6 +63,7 @@ hdfs dfs -cat /prej_output/part-r-00000 | grep -v -w -f stopwords.txt | sort -k2
 | lady |    179 |
 | sister |    172 |
 | illustration |    163 |
+
 
 ![iamge_1](./Screenshoots/prej3.png)
 
@@ -97,7 +98,7 @@ hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i pride
 
 ---
 
-### Screenshot
+### YARN UI
 
 ![iamge_1](./Screenshoots/yarn.png)
 
