@@ -95,7 +95,7 @@ hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i pride
 
 ### Screenshot
 
-![iamge_1](./Screenshots/yarn.png)
+![iamge_1](./Screenshoots/yarn.png)
 
 ## Lessons Learned
 - Tokenization – Raw WordCount counts punctuation as part of words (e.g., elizabeth vs elizabeth's).
