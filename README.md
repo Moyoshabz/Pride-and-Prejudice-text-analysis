@@ -94,6 +94,7 @@ hdfs dfs -cat /prej_output/part-r-00000 | grep -w -i pride
 ---
 
 ### Screenshot
+
 ![iamge_1](./images2/yarn.png)
 
 ## Lessons Learned
